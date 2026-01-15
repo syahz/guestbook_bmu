@@ -122,14 +122,14 @@ export function CreateGuestBookForm() {
     <>
       {mutation.isSuccess && showSuccess && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+          <div className="w-full max-w-md rounded-2xl border border-white/30 bg-white/10 p-8 shadow-2xl backdrop-blur-xl backdrop-saturate-150">
             <div className="mb-4 flex items-center gap-3">
               <div className="flex size-12 items-center justify-center rounded-full bg-emerald-100">
                 <CheckCircle2 className="size-6 text-emerald-600" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-slate-900">Thank you!</h3>
-                <p className="text-sm text-slate-600">Your guest book entry has been submitted.</p>
+                <h3 className="text-lg font-semibold text-white">Thank you!</h3>
+                <p className="text-sm text-white/80">Your guest book entry has been submitted.</p>
               </div>
             </div>
             <Button onClick={closeSuccessModal} className="w-full">
@@ -150,47 +150,47 @@ export function CreateGuestBookForm() {
       )}
 
       <form
-        className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100"
+        className="rounded-2xl border border-white/30 bg-white/10 p-8 shadow-2xl backdrop-blur-xl backdrop-saturate-150"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="space-y-6">
-            <section className="space-y-4">
-              <div className="flex items-center gap-2 text-slate-800">
-                <FileText className="size-5 text-blue-600" />
+            <section className="space-y-6">
+              <div className="flex items-center gap-2 text-white">
+                <FileText className="size-5 text-blue-400" />
                 <h2 className="text-lg font-semibold">Guest identity</h2>
               </div>
               <div className="space-y-3">
-                <label className="block text-sm font-medium text-slate-700">Full name</label>
+                <label className="block text-sm font-medium text-white/90">Full name</label>
                 <input
                   {...register("name")}
                   aria-invalid={!!errors.name}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm shadow-inner placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                  className="w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-sm text-white shadow-inner placeholder:text-white/40 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20"
                   placeholder="Enter full name"
                 />
-                {errors.name && <p className="text-sm text-red-600">{errors.name.message}</p>}
+                {errors.name && <p className="text-sm text-red-400">{errors.name.message}</p>}
               </div>
 
               <div className="space-y-3">
-                <label className="block text-sm font-medium text-slate-700">Company / organization</label>
+                <label className="block text-sm font-medium text-white/90">Company / organization</label>
                 <input
                   {...register("origin")}
                   aria-invalid={!!errors.origin}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm shadow-inner placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                  className="w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-sm text-white shadow-inner placeholder:text-white/40 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20"
                   placeholder="Example: BMU, Partner, Government"
                 />
-                {errors.origin && <p className="text-sm text-red-600">{errors.origin.message}</p>}
+                {errors.origin && <p className="text-sm text-red-400">{errors.origin.message}</p>}
               </div>
 
               <div className="space-y-3">
-                <div className="flex items-center gap-2 text-slate-800">
-                  <MapPin className="size-5 text-blue-600" />
+                <div className="flex items-center gap-2 text-white">
+                  <MapPin className="size-5 text-blue-400" />
                   <label className="text-sm font-medium">Who do you want to meet?</label>
                 </div>
                 <select
                   {...register("purpose")}
                   aria-invalid={!!errors.purpose}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm shadow-inner focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                  className="w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-sm text-white shadow-inner focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20 [&>option]:bg-slate-800"
                 >
                   <option value="">Select purpose</option>
                   {purposeOptions.map((opt) => (
@@ -203,37 +203,37 @@ export function CreateGuestBookForm() {
                   <input
                     {...register("purpose_other")}
                     aria-invalid={!!errors.purpose_other}
-                    className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm shadow-inner placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                    className="w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-sm text-white shadow-inner placeholder:text-white/40 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20"
                     placeholder="Specify the person / division"
                   />
                 )}
-                {errors.purpose && <p className="text-sm text-red-600">{errors.purpose.message}</p>}
+                {errors.purpose && <p className="text-sm text-red-400">{errors.purpose.message}</p>}
                 {errors.purpose_other && (
-                  <p className="text-sm text-red-600">{errors.purpose_other.message}</p>
+                  <p className="text-sm text-red-400">{errors.purpose_other.message}</p>
                 )}
               </div>
 
               <div className="space-y-3">
-                <label className="block text-sm font-medium text-slate-700">Reason for visit</label>
+                <label className="block text-sm font-medium text-white/90">Reason for visit</label>
                 <textarea
                   {...register("reason")}
                   aria-invalid={!!errors.reason}
                   rows={4}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm shadow-inner placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100"
+                  className="w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-sm text-white shadow-inner placeholder:text-white/40 focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400/20"
                   placeholder="Describe your reason briefly"
                 />
-                {errors.reason && <p className="text-sm text-red-600">{errors.reason.message}</p>}
+                {errors.reason && <p className="text-sm text-red-400">{errors.reason.message}</p>}
               </div>
             </section>
           </div>
 
           <div className="space-y-8">
             <section className="space-y-3">
-              <div className="flex items-center gap-2 text-slate-800">
-                <span className="inline-flex size-8 items-center justify-center rounded-full bg-blue-50 text-blue-700">1</span>
+              <div className="flex items-center gap-2 text-white">
+                <span className="inline-flex size-8 items-center justify-center rounded-full bg-blue-500/20 text-blue-300">1</span>
                 <div>
                   <p className="text-sm font-semibold">Selfie photo</p>
-                  <p className="text-xs text-slate-500">Make sure your face is clearly visible.</p>
+                  <p className="text-xs text-white/60">Make sure your face is clearly visible.</p>
                 </div>
               </div>
               <SelfieCapture
@@ -246,11 +246,11 @@ export function CreateGuestBookForm() {
             </section>
 
             <section className="space-y-3">
-              <div className="flex items-center gap-2 text-slate-800">
-                <span className="inline-flex size-8 items-center justify-center rounded-full bg-blue-50 text-blue-700">2</span>
+              <div className="flex items-center gap-2 text-white">
+                <span className="inline-flex size-8 items-center justify-center rounded-full bg-blue-500/20 text-blue-300">2</span>
                 <div>
                   <p className="text-sm font-semibold">Digital signature</p>
-                  <p className="text-xs text-slate-500">Use mouse or touch to sign.</p>
+                  <p className="text-xs text-white/60">Use mouse or touch to sign.</p>
                 </div>
               </div>
               <SignaturePad
@@ -264,8 +264,8 @@ export function CreateGuestBookForm() {
           </div>
         </div>
 
-        <div className="mt-8 flex items-center justify-between border-t pt-6">
-          <div className="text-xs text-slate-500">
+        <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-6">
+          <div className="text-xs text-white/50">
             Data will be sent as multipart/form-data with selfie and signature attachments.
           </div>
           <Button
